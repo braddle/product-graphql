@@ -1,0 +1,28 @@
+schema {
+    query: Query
+}
+
+type Product {
+    ean: ID!
+    name: String!
+    price: Float!
+    image: String!
+    department: String!
+    ageRestriction: Int!
+    tagged: Boolean!
+    quantityRestriction: Int!
+    aisle: Int!
+    row: Int!
+    bay: Int!
+    shelf: Int!
+}
+
+input ProductFilter {
+    priceLessThan: Float
+    tagged: Boolean
+}
+
+type Query {
+    products (filter: ProductFilter): [Product!]!
+    product(ean: ID!): Product
+}
